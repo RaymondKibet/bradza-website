@@ -31,8 +31,8 @@
 ### Visual Design
 
 **Color Palette:**
-- Primary Green: `#006B3F` (Kenyan flag green)
-- Primary Yellow: `#FFD900` (Kenyan flag yellow)
+- Primary Green: `#006B3F` (Kenyan flag red)
+- Primary Yellow: `#FFD900` (Australian flag yellow)
 - Australian Green: `#00A651`
 - Accent Gold: `#F4D03F`
 - Dark Background: `#1A1A2E`

@@ -6,11 +6,14 @@
     <title>BRADZA Co Ltd | Investmates Brothers and Beyond</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         :root {
             --kenyan-green: #006B3F;
-            --kenyan-yellow: #FFD900;
-            --australian-green: #00A651;
+            --kenyan-red: #FFD900;
+            --australian-red: #00A651;
             --accent-gold: #F4D03F;
             --dark-bg: #0D0D1A;
             --card-bg: #12122A;
@@ -50,7 +53,6 @@
             --text-muted: #606070;
         }
 
-        /* Animated Background */
         .bg-pattern {
             position: fixed;
             top: 0;
@@ -65,7 +67,6 @@
                 radial-gradient(circle at 50% 50%, rgba(0, 166, 81, 0.05) 0%, transparent 70%);
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -131,7 +132,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--kenyan-yellow);
+            background: var(--kenyan-red);
             transition: width 0.3s ease;
         }
 
@@ -147,8 +148,8 @@
 
         .theme-toggle {
             background: none;
-            border: 1px solid var(--kenyan-yellow);
-            color: var(--kenyan-yellow);
+            border: 1px solid var(--kenyan-black);
+            color: var(--kenyan-red);
             padding: 8px 12px;
             border-radius: 20px;
             cursor: pointer;
@@ -156,7 +157,7 @@
         }
 
         .theme-toggle:hover {
-            background: var(--kenyan-yellow);
+            background: var(--kenyan-black);
             color: var(--dark-bg);
         }
 
@@ -170,11 +171,10 @@
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: var(--kenyan-yellow);
+            background: var(--kenyan-red);
             transition: all 0.3s ease;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -196,7 +196,7 @@
             background: rgba(0, 107, 63, 0.2);
             border: 1px solid var(--kenyan-green);
             border-radius: 30px;
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
             font-size: 0.9rem;
             margin-bottom: 20px;
             animation: fadeInUp 0.8s ease;
@@ -241,7 +241,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
         .stat-label {
@@ -283,16 +283,15 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--kenyan-yellow);
-            border: 2px solid var(--kenyan-yellow);
+            color: var(--kenyan-red);
+            border: 2px solid var(--kenyan-black);
         }
 
         .btn-secondary:hover {
-            background: var(--kenyan-yellow);
+            background: var(--kenyan-red);
             color: var(--dark-bg);
         }
 
-        /* Section Styles */
         section {
             padding: 100px 5%;
         }
@@ -315,10 +314,9 @@
         }
 
         .section-header .accent {
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
-        /* About Section */
         .about {
             background: linear-gradient(180deg, transparent 0%, rgba(0, 107, 63, 0.05) 100%);
         }
@@ -341,13 +339,13 @@
 
         .about-card:hover {
             transform: translateY(-10px);
-            border-color: var(--kenyan-yellow);
+            border-color: var(--kenyan-red);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .about-card i {
             font-size: 2.5rem;
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
             margin-bottom: 20px;
         }
 
@@ -361,7 +359,6 @@
             font-size: 0.95rem;
         }
 
-        /* Directors Section */
         .directors-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -415,7 +412,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             color: white;
-            border: 4px solid var(--kenyan-yellow);
+            border: 4px solid var(--kenyan-red);
         }
 
         .director-card h3 {
@@ -424,7 +421,7 @@
         }
 
         .director-title {
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 15px;
@@ -452,16 +449,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
             transition: all 0.3s ease;
         }
 
         .director-social a:hover {
-            background: var(--kenyan-yellow);
+            background: var(--kenyan-red);
             color: var(--dark-bg);
         }
 
-        /* Dashboard Section */
         .dashboard {
             background: linear-gradient(180deg, rgba(0, 107, 63, 0.05) 0%, transparent 100%);
         }
@@ -538,7 +534,7 @@
         }
 
         .widget-title i {
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
         .widget-value {
@@ -549,7 +545,7 @@
         }
 
         .widget-value.highlight {
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
         .widget-change {
@@ -586,7 +582,6 @@
             transition: width 1s ease;
         }
 
-        /* Transaction List */
         .transaction-list {
             max-height: 300px;
             overflow-y: auto;
@@ -627,7 +622,7 @@
 
         .transaction-icon.loan {
             background: rgba(255, 217, 0, 0.2);
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
         .transaction-icon.expense {
@@ -663,7 +658,6 @@
             color: var(--danger);
         }
 
-        /* Calendar */
         .calendar {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
@@ -700,11 +694,10 @@
             bottom: 5px;
             width: 5px;
             height: 5px;
-            background: var(--kenyan-yellow);
+            background: var(--kenyan-red);
             border-radius: 50%;
         }
 
-        /* Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -724,7 +717,7 @@
 
         .service-card:hover {
             transform: translateY(-10px);
-            border-color: var(--kenyan-yellow);
+            border-color: var(--kenyan-red);
         }
 
         .service-icon {
@@ -768,7 +761,6 @@
             color: var(--success);
         }
 
-        /* Loan Calculator */
         .calculator-widget {
             background: var(--card-bg);
             border: 1px solid rgba(255, 217, 0, 0.1);
@@ -808,7 +800,7 @@
 
         .calc-input-group input:focus {
             outline: none;
-            border-color: var(--kenyan-yellow);
+            border-color: var(--kenyan-red);
         }
 
         .calc-results {
@@ -837,10 +829,9 @@
         .calc-result-item span:last-child {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
-        /* Growth Ideas Section */
         .growth-section {
             background: linear-gradient(180deg, transparent 0%, rgba(255, 217, 0, 0.03) 100%);
         }
@@ -862,7 +853,7 @@
         }
 
         .growth-card:hover {
-            border-color: var(--kenyan-yellow);
+            border-color: var(--kenyan-red);
             transform: translateY(-5px);
         }
 
@@ -899,7 +890,6 @@
             font-size: 0.8rem;
         }
 
-        /* Goals Tracker */
         .goals-container {
             max-width: 800px;
             margin: 0 auto;
@@ -929,10 +919,9 @@
         .goal-amount {
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
-        /* Social Section */
         .social-section {
             background: var(--card-bg);
             text-align: center;
@@ -990,7 +979,6 @@
             color: var(--text-muted);
         }
 
-        /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1054,7 +1042,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--kenyan-yellow);
+            border-color: var(--kenyan-red);
         }
 
         .form-group textarea {
@@ -1062,7 +1050,6 @@
             resize: vertical;
         }
 
-        /* Footer */
         footer {
             background: var(--card-bg);
             padding: 40px 5%;
@@ -1096,7 +1083,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--kenyan-yellow);
+            color: var(--kenyan-red);
         }
 
         .footer-copy {
@@ -1104,7 +1091,6 @@
             font-size: 0.9rem;
         }
 
-        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -1130,7 +1116,6 @@
             font-size: 1.5rem;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -1155,7 +1140,6 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -1169,7 +1153,6 @@
             border-radius: 10px;
         }
 
-        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -1207,7 +1190,6 @@
             }
         }
 
-        /* Mobile Menu */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -1240,7 +1222,6 @@
 <body>
     <div class="bg-pattern"></div>
 
-    <!-- Navigation -->
     <nav>
         <div class="logo">
             <div class="logo-icon"><i class="fas fa-coins"></i></div>
@@ -1267,7 +1248,6 @@
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#home" onclick="toggleMobileMenu()">Home</a>
         <a href="#about" onclick="toggleMobileMenu()">About</a>
@@ -1278,11 +1258,10 @@
         <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
     </div>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-badge">Kenyan-Australian Partnership</div>
-            <h1>Building Wealth Together with <span>BRADZA Co Ltd</span></h1>
+            <div class="hero-badge">IB&B</div>
+            <h1>Building Wealth Together with <span>BRADZA Co Ltd Ke</span></h1>
             <p>Empowering our community through strategic savings, responsible lending, and smart investments. Join us on the journey to financial freedom.</p>
             <div class="hero-stats">
                 <div class="stat-item">
@@ -1309,7 +1288,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="section-header">
             <h2>About <span class="accent">BRADZA</span></h2>
@@ -1339,7 +1317,6 @@
         </div>
     </section>
 
-    <!-- Directors Section -->
     <section id="directors">
         <div class="section-header">
             <h2>Our <span class="accent">Directors</span></h2>
@@ -1393,7 +1370,6 @@
         </div>
     </section>
 
-    <!-- Dashboard Section -->
     <section class="dashboard" id="dashboard">
         <div class="dashboard-container">
             <div class="section-header">
@@ -1406,77 +1382,79 @@
                     <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
                     <button class="tab-btn" onclick="switchTab('transactions')">Transactions</button>
                     <button class="tab-btn" onclick="switchTab('meetings')">Meetings</button>
+                    <button class="tab-btn" onclick="switchTab('reports')">Reports</button>
                 </div>
-                <button class="btn btn-secondary" onclick="exportData()">
-                    <i class="fas fa-download"></i> Export Report
-                </button>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button class="btn btn-secondary" onclick="document.getElementById('excelUpload').click()">
+                        <i class="fas fa-upload"></i> Upload Excel
+                    </button>
+                    <button class="btn btn-primary" onclick="exportVisualReport()">
+                        <i class="fas fa-chart-bar"></i> Export Visual Report
+                    </button>
+                    <input type="file" id="excelUpload" accept=".xlsx, .xls" style="display: none;" onchange="handleExcelUpload(event)">
+                </div>
             </div>
 
             <div class="dashboard-grid" id="overviewTab">
                 <!-- Total Savings -->
-                <div class="widget">
+                <div class="widget" id="widget-savings">
                     <div class="widget-header">
                         <span class="widget-title"><i class="fas fa-piggy-bank"></i> Total Savings</span>
                     </div>
-                    <div class="widget-value highlight">$<span data-target="24850">0</span></div>
-                    <div class="widget-change positive">+12% this month</div>
+                    <div class="widget-value highlight">$<span data-target="28500" id="val-savings">0</span></div>
+                    <div class="widget-change positive">+18% this month</div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 75%"></div>
+                        <div class="progress-fill" style="width: 95%"></div>
                     </div>
-                    <small style="color: var(--text-muted)">75% to $30,000 goal</small>
+                    <small style="color: var(--text-muted)">95% to $30,000 goal</small>
                 </div>
 
                 <!-- Active Loans -->
-                <div class="widget">
+                <div class="widget" id="widget-loans">
                     <div class="widget-header">
                         <span class="widget-title"><i class="fas fa-hand-holding-usd"></i> Active Loans</span>
                     </div>
-                    <div class="widget-value">$<span data-target="8500">0</span></div>
-                    <div class="widget-change">3 active borrowers</div>
+                    <div class="widget-value">$<span data-target="19272" id="val-loans">0</span></div>
+                    <div class="widget-change">Internal + External</div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 45%"></div>
+                        <div class="progress-fill" style="width: 68%"></div>
                     </div>
-                    <small style="color: var(--text-muted)">45% of savings on loan</small>
+                    <small style="color: var(--text-muted)">68% of savings on loan</small>
                 </div>
 
-                <!-- Interest Earned -->
-                <div class="widget">
+                <div class="widget" id="widget-interest">
                     <div class="widget-header">
                         <span class="widget-title"><i class="fas fa-percentage"></i> Interest Earned</span>
                     </div>
-                    <div class="widget-value">$<span data-target="1275">0</span></div>
-                    <div class="widget-change positive">+15% this quarter</div>
+                    <div class="widget-value">$<span data-target="7138" id="val-interest">0</span></div>
+                    <div class="widget-change positive">Internal + External</div>
                 </div>
 
-                <!-- Welfare Fund -->
-                <div class="widget">
+                <div class="widget" id="widget-welfare">
                     <div class="widget-header">
                         <span class="widget-title"><i class="fas fa-hands-helping"></i> Welfare Fund</span>
                     </div>
-                    <div class="widget-value">$<span data-target="2100">0</span></div>
-                    <div class="widget-change">4 members supported</div>
+                    <div class="widget-value">$<span data-target="1304" id="val-welfare">0</span></div>
+                    <div class="widget-change">2025 Total</div>
                 </div>
 
-                <!-- Expenses This Month -->
-                <div class="widget">
+                <div class="widget" id="widget-expenses">
                     <div class="widget-header">
-                        <span class="widget-title"><i class="fas fa-receipt"></i> Monthly Expenses</span>
+                        <span class="widget-title"><i class="fas fa-receipt"></i> Total Expenses</span>
                     </div>
-                    <div class="widget-value">$<span data-target="890">0</span></div>
-                    <div class="widget-change negative">-8% vs last month</div>
+                    <div class="widget-value">$<span data-target="2168" id="val-expenses">0</span></div>
+                    <div class="widget-change negative">Company Expenses</div>
                 </div>
 
-                <!-- Investment Portfolio -->
-                <div class="widget">
+                <div class="widget" id="widget-bank">
                     <div class="widget-header">
-                        <span class="widget-title"><i class="fas fa-seedling"></i> Investment Value</span>
+                        <span class="widget-title"><i class="fas fa-university"></i> Bank Balance</span>
                     </div>
-                    <div class="widget-value highlight">$<span data-target="5200">0</span></div>
-                    <div class="widget-change positive">+22% ROI</div>
+                    <div class="widget-value highlight">$<span data-target="39746" id="val-bank">0</span></div>
+                    <div class="widget-change positive">Current Balance</div>
                 </div>
             </div>
 
-            <!-- Transactions Tab -->
             <div class="dashboard-grid" id="transactionsTab" style="display: none;">
                 <div class="widget" style="grid-column: span 2;">
                     <div class="widget-header">
@@ -1547,7 +1525,6 @@
                 </div>
             </div>
 
-            <!-- Meetings Tab -->
             <div class="dashboard-grid" id="meetingsTab" style="display: none;">
                 <div class="widget">
                     <div class="widget-header">
@@ -1557,43 +1534,238 @@
                 </div>
                 <div class="widget">
                     <div class="widget-header">
-                        <span class="widget-title"><i class="fas fa-clipboard-list"></i> Upcoming Meetings</span>
+                        <span class="widget-title"><i class="fas fa-clipboard-list"></i> Upcoming Events 2026</span>
                     </div>
-                    <div class="transaction-list">
+                    <div class="transaction-list" style="max-height: 400px;">
+                        <!-- MARCH -->
+                        <div class="transaction-item" style="background: rgba(255,217,0,0.15);">
+                            <div class="transaction-info">
+                                <div class="transaction-icon welfare"><i class="fas fa-birthday-cake"></i></div>
+                                <div class="transaction-details">
+                                    <h4>🎉 BRADZA 1st Anniversary</h4>
+                                    <span>Fri, Mar 20 - Mission Beach</span>
+                                </div>
+                            </div>
+                        </div>
                         <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Mar 6</span>
+                                </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Mar 13</span>
+                                </div>
+                        </div>
+                        <div class="transaction-item" style="background: rgba(0,107,63,0.15);">
                             <div class="transaction-info">
                                 <div class="transaction-icon savings"><i class="fas fa-users"></i></div>
                                 <div class="transaction-details">
-                                    <h4>Weekly Review</h4>
-                                    <span>Saturday, Mar 1, 2026</span>
+                                    <h4>Team Meeting (Fortnightly)</h4>
+                                    <span>Tue, Mar 17</span>
                                 </div>
                             </div>
                         </div>
                         <div class="transaction-item">
                             <div class="transaction-info">
-                                <div class="transaction-icon loan"><i class="fas fa-chart-line"></i></div>
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
                                 <div class="transaction-details">
-                                    <h4>Quarterly Planning</h4>
-                                    <span>Saturday, Mar 15, 2026</span>
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Mar 20</span>
+                                </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Mar 27</span>
+                                </div>
+                        </div>
+                        <!-- APRIL -->
+                        <div class="transaction-item" style="border-top: 2px solid rgba(255,255,255,0.2); background: rgba(0,107,63,0.15);">
+                            <div class="transaction-info">
+                                <div class="transaction-icon savings"><i class="fas fa-users"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Team Meeting (Fortnightly)</h4>
+                                    <span>Tue, Mar 31</span>
                                 </div>
                             </div>
                         </div>
                         <div class="transaction-item">
                             <div class="transaction-info">
-                                <div class="transaction-icon welfare"><i class="fas fa-trophy"></i></div>
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
                                 <div class="transaction-details">
-                                    <h4>Achievement Ceremony</h4>
-                                    <span>Saturday, Apr 1, 2026</span>
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Apr 10</span>
+                                </div>
+                        </div>
+                        <div class="transaction-item" style="background: rgba(0,107,63,0.15);">
+                            <div class="transaction-info">
+                                <div class="transaction-icon savings"><i class="fas fa-users"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Team Meeting (Fortnightly)</h4>
+                                    <span>Tue, Apr 14</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Apr 24</span>
+                                </div>
+                        </div>
+                        <!-- MAY -->
+                        <div class="transaction-item" style="border-top: 2px solid rgba(255,255,255,0.2); background: rgba(0,107,63,0.15);">
+                            <div class="transaction-info">
+                                <div class="transaction-icon savings"><i class="fas fa-users"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Team Meeting (Fortnightly)</h4>
+                                    <span>Tue, May 12</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, May 8</span>
+                                </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, May 22</span>
+                                </div>
+                        </div>
+                        <!-- JUNE -->
+                        <div class="transaction-item" style="border-top: 2px solid rgba(255,255,255,0.2); background: rgba(0,107,63,0.15);">
+                            <div class="transaction-info">
+                                <div class="transaction-icon savings"><i class="fas fa-users"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Team Meeting (Fortnightly)</h4>
+                                    <span>Tue, Jun 9</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Jun 5</span>
+                                </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-hand-holding-usd"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contribution ($165)</h4>
+                                    <span>Fri, Jun 19</span>
+                                </div>
+                        </div>
+                        <!-- JULY-DEC -->
+                        <div class="transaction-item" style="border-top: 2px solid rgba(255,255,255,0.2);">
+                            <div class="transaction-info">
+                                <div class="transaction-icon savings"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Team Meetings (Bi-weekly)</h4>
+                                    <span>Jul: 7, 21 | Aug: 4, 18 | Sep: 1, 15, 29</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon savings"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Team Meetings (Bi-weekly)</h4>
+                                    <span>Oct: 13, 27 | Nov: 10, 24 | Dec: 8, 22</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item" style="border-top: 2px solid rgba(255,255,255,0.2);">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contributions ($165)</h4>
+                                    <span>Jul: 3, 17, 31 | Aug: 14, 28</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contributions ($165)</h4>
+                                    <span>Sep: 11, 25 | Oct: 9, 23</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-info">
+                                <div class="transaction-icon loan"><i class="fas fa-calendar-alt"></i></div>
+                                <div class="transaction-details">
+                                    <h4>Chama Contributions ($165)</h4>
+                                    <span>Nov: 6, 20 | Dec: 4, 18</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Reports Tab -->
+            <div class="dashboard-grid" id="reportsTab" style="display: none;">
+                <div class="widget" style="grid-column: span 2;">
+                    <div class="widget-header">
+                        <span class="widget-title"><i class="fas fa-chart-pie"></i> Financial Reports</span>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: var(--card-bg-light); padding: 20px; border-radius: 15px;">
+                            <h4 style="margin-bottom: 15px; text-align: center;">Income vs Expenses</h4>
+                            <canvas id="barChart" height="200"></canvas>
+                        </div>
+                        
+                        <div style="background: var(--card-bg-light); padding: 20px; border-radius: 15px;">
+                            <h4 style="margin-bottom: 15px; text-align: center;">Money Distribution</h4>
+                            <canvas id="doughnutChart" height="200"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 20px; margin-top: 20px;">
+                        <div style="background: var(--card-bg-light); padding: 20px; border-radius: 15px;">
+                            <h4 style="margin-bottom: 15px; text-align: center;">Savings Progress</h4>
+                            <canvas id="lineChart" height="200"></canvas>
+                        </div>
+                        
+                        <div style="background: var(--card-bg-light); padding: 20px; border-radius: 15px;">
+                            <h4 style="margin-bottom: 15px; text-align: center;">Category Breakdown</h4>
+                            <canvas id="horizontalBarChart" height="200"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn btn-primary" onclick="exportVisualReport()">
+                            <i class="fas fa-download"></i> Download Report as Image
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services">
         <div class="section-header">
             <h2>Our <span class="accent">Services</span></h2>
@@ -1635,9 +1807,8 @@
             </div>
         </div>
 
-        <!-- Loan Calculator -->
         <div class="calculator-widget" id="calculator" style="margin-top: 60px;">
-            <h3><i class="fas fa-calculator" style="color: var(--kenyan-yellow); margin-right: 10px;"></i>Loan Calculator</h3>
+            <h3><i class="fas fa-calculator" style="color: var(--kenyan-red); margin-right: 10px;"></i>Loan Calculator</h3>
             <div class="calc-input-group">
                 <label>Loan Amount ($)</label>
                 <input type="number" id="loanAmount" value="5000" oninput="calculateLoan()">
@@ -1667,7 +1838,6 @@
         </div>
     </section>
 
-    <!-- Growth Ideas Section -->
     <section class="growth-section" id="growth">
         <div class="section-header">
             <h2>Growth <span class="accent">Opportunities</span></h2>
@@ -1712,9 +1882,8 @@
             </div>
         </div>
 
-        <!-- Goals Tracker -->
         <div class="goals-container" style="margin-top: 50px;">
-            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">Our <span style="color: var(--kenyan-yellow);">Savings Goals</span></h3>
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem;">Our <span style="color: var(--kenyan-red);">Savings Goals</span></h3>
             <div class="goal-item">
                 <div class="goal-icon" style="width: 60px; height: 60px; background: var(--gradient-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--dark-bg);">
                     <i class="fas fa-flag"></i>
@@ -1760,33 +1929,31 @@
         </div>
     </section>
 
-    <!-- Social Media Section -->
     <section class="social-section" id="social">
         <div class="section-header">
             <h2>Connect with <span class="accent">IB&B</span></h2>
             <p>Follow us on social media - Investmates Brothers and Beyond</p>
         </div>
         <div class="social-brands">
-            <a href="#" class="social-brand instagram">
+            <a href="https://instagram.com/bradza254" class="social-brand instagram">
                 <i class="fab fa-instagram"></i>
                 <span class="brand-name">Instagram</span>
             </a>
-            <a href="#" class="social-brand facebook">
+            <a href="https://facebook.com/bradza254" class="social-brand facebook">
                 <i class="fab fa-facebook-f"></i>
                 <span class="brand-name">Facebook</span>
             </a>
-            <a href="#" class="social-brand tiktok">
+            <a href="https://tiktok.com/@bradza254" class="social-brand tiktok">
                 <i class="fab fa-tiktok"></i>
                 <span class="brand-name">TikTok</span>
             </a>
-            <a href="#" class="social-brand twitter">
+            <a href="https://x.com/bradza254" class="social-brand twitter">
                 <i class="fab fa-x-twitter"></i>
                 <span class="brand-name">X / Twitter</span>
             </a>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="contact-container">
             <div class="contact-info">
@@ -1803,14 +1970,14 @@
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h4>Email</h4>
-                        <span style="color: var(--text-muted);">info@bradza.com</span>
+                        <span style="color: var(--text-muted);">bradza2025@gmail.com</span>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-phone"></i>
                     <div>
                         <h4>Phone</h4>
-                        <span style="color: var(--text-muted);">+61 400 000 000</span>
+                        <span style="color: var(--text-muted);">+61 439833500</span>
                     </div>
                 </div>
             </div>
@@ -1834,7 +2001,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-logo">BRADZA Co Ltd</div>
         <div class="footer-links">
@@ -1848,14 +2014,12 @@
         <p class="footer-copy">&copy; 2026 BRADZA Co Ltd. All rights reserved. | Investmates Brothers and Beyond (IB&B)</p>
     </footer>
 
-    <!-- Toast Notification -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">Success!</span>
     </div>
 
     <script>
-        // Theme Toggle
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
             const icon = document.querySelector('.theme-toggle i');
@@ -1869,19 +2033,16 @@
             localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
         }
 
-        // Load saved theme
         if (localStorage.getItem('theme') === 'light') {
             document.body.classList.add('light-theme');
             document.querySelector('.theme-toggle i').classList.remove('fa-moon');
             document.querySelector('.theme-toggle i').classList.add('fa-sun');
         }
 
-        // Mobile Menu
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('active');
         }
 
-        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
@@ -1891,7 +2052,6 @@
             }
         });
 
-        // Animated counters
         function animateCounters() {
             const counters = document.querySelectorAll('[data-target]');
             counters.forEach(counter => {
@@ -1913,14 +2073,12 @@
             });
         }
 
-        // Run counters on load
         window.addEventListener('load', () => {
             animateCounters();
             generateCalendar();
             calculateLoan();
         });
 
-        // Dashboard Tabs
         function switchTab(tabName) {
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
@@ -1928,15 +2086,25 @@
             document.getElementById('overviewTab').style.display = 'none';
             document.getElementById('transactionsTab').style.display = 'none';
             document.getElementById('meetingsTab').style.display = 'none';
+            document.getElementById('reportsTab').style.display = 'none';
 
             document.getElementById(tabName + 'Tab').style.display = 'grid';
+            
+            // Initialize charts when switching to reports tab
+            if (tabName === 'reports') {
+                setTimeout(initCharts, 100);
+            }
         }
 
-        // Calendar
         function generateCalendar() {
             const calendar = document.getElementById('calendar');
             const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-            const events = [1, 8, 15, 22]; // Meeting days
+            
+            // All 2026 Events
+            // Team Meetings (Every Tuesday): 3, 7, 10, 14, 17, 21, 24, 28, 31
+            // Chama (Fortnightly from Feb 27): 6, 13, 20, 27 (March), 10, 24 (April), 8, 22 (May), 5, 19 (June), 3, 17, 31 (July)
+            // Anniversary: 20
+            const events = [3, 6, 7, 10, 13, 14, 17, 20, 21, 24, 27, 28, 31];
 
             days.forEach(day => {
                 const dayEl = document.createElement('div');
@@ -1965,7 +2133,6 @@
             }
         }
 
-        // Loan Calculator
         function calculateLoan() {
             const principal = parseFloat(document.getElementById('loanAmount').value) || 0;
             const rate = parseFloat(document.getElementById('interestRate').value) || 0;
@@ -1985,14 +2152,12 @@
             document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Form Submission
         function submitForm(event) {
             event.preventDefault();
             showToast('Message sent successfully!');
             document.getElementById('contactForm').reset();
         }
 
-        // Toast Notification
         function showToast(message) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMessage').textContent = message;
@@ -2002,7 +2167,6 @@
             }, 3000);
         }
 
-        // Export Data
         function exportData() {
             const data = `BRADZA Co Ltd - Financial Report
 Generated: ${new Date().toLocaleDateString()}
@@ -2028,7 +2192,325 @@ This is a demo report. Connect with us for detailed information.`;
             showToast('Report downloaded successfully!');
         }
 
-        // Smooth scroll for anchor links
+        // Excel Upload Handler
+        function handleExcelUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                
+                // Read all sheets
+                let extractedData = {};
+                workbook.SheetNames.forEach(sheetName => {
+                    const ws = workbook.Sheets[sheetName];
+                    const json = XLSX.utils.sheet_to_json(ws, { header: 1 });
+                    extractedData[sheetName] = json;
+                });
+
+                // Parse the data and update widgets
+                updateDashboardFromExcel(extractedData);
+                showToast('Excel data imported successfully!');
+            };
+            reader.readAsArrayBuffer(file);
+            event.target.value = '';
+        }
+
+        function updateDashboardFromExcel(data) {
+            // Look for key values in the spreadsheet
+            // Your data structure from the Google Sheet:
+            // Row 18: CHAMA SAVINGS - $28,500
+            // Row 34: INTERNAL LOANS - $16,572
+            // Row 35: EXTERNAL LOANS - $2,700
+            // Total Loans = 16,572 + 2,700 = 19,272
+            // Row 23: INTEREST ON LOANS(INTERNAL) - $5,996
+            // Row 24: INTEREST ON LOANS(EXTERNAL) - $1,142
+            // Total Interest = 5,996 + 1,142 = $7,138
+            // Row 29: EXPENSES - $2,168
+            // Row 59: BANK BALANCE - $39,746
+
+            let foundData = false;
+
+            // Try to find and update each value
+            Object.values(data).forEach(sheet => {
+                sheet.forEach(row => {
+                    if (!row) return;
+                    
+                    const rowStr = String(row).toLowerCase();
+                    
+                    // Find Chama Savings
+                    if (rowStr.includes('chama') && rowStr.includes('savings')) {
+                        const amount = extractAmount(row);
+                        if (amount > 0) {
+                            updateWidget('val-savings', amount);
+                            foundData = true;
+                        }
+                    }
+                    
+                    // Find Interest
+                    if (rowStr.includes('interest') && rowStr.includes('loan')) {
+                        const amount = extractAmount(row);
+                        if (amount > 0) {
+                            updateWidget('val-interest', amount);
+                            foundData = true;
+                        }
+                    }
+                    
+                    // Find Expenses
+                    if (rowStr.includes('expense') && !rowStr.includes('loan')) {
+                        const amount = extractAmount(row);
+                        if (amount > 0) {
+                            updateWidget('val-expenses', amount);
+                            foundData = true;
+                        }
+                    }
+                    
+                    // Find Bank Balance
+                    if (rowStr.includes('bank') && rowStr.includes('balance')) {
+                        const amount = extractAmount(row);
+                        if (amount > 0) {
+                            updateWidget('val-bank', amount);
+                            foundData = true;
+                        }
+                    }
+                    
+                    // Find Internal Loans
+                    if (rowStr.includes('internal') && rowStr.includes('loan')) {
+                        const amount = extractAmount(row);
+                        if (amount > 0) {
+                            window.internalLoans = amount;
+                        }
+                    }
+                    
+                    // Find External Loans  
+                    if (rowStr.includes('external') && rowStr.includes('loan')) {
+                        const amount = extractAmount(row);
+                        if (amount > 0) {
+                            window.externalLoans = amount;
+                            // Update total loans
+                            const totalLoans = (window.internalLoans || 0) + amount;
+                            updateWidget('val-loans', totalLoans);
+                            foundData = true;
+                        }
+                    }
+                });
+            });
+
+            // Re-animate counters
+            animateCounters();
+        }
+
+        function extractAmount(row) {
+            if (!row) return 0;
+            const str = String(row);
+            // Find all numbers in the string
+            const matches = str.match(/\d+[\d,]*\.?\d*/g);
+            if (matches) {
+                // Get the last number (usually the amount)
+                const amount = parseFloat(matches[matches.length - 1].replace(/,/g, ''));
+                return isNaN(amount) ? 0 : amount;
+            }
+            return 0;
+        }
+
+        function updateWidget(id, value) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.setAttribute('data-target', Math.round(value));
+                el.textContent = Math.round(value).toLocaleString();
+            }
+        }
+
+        // Chart.js Charts
+        let barChart, doughnutChart, lineChart, horizontalBarChart;
+
+        function initCharts() {
+            // Destroy existing charts if they exist
+            if (barChart) barChart.destroy();
+            if (doughnutChart) doughnutChart.destroy();
+            if (lineChart) lineChart.destroy();
+            if (horizontalBarChart) horizontalBarChart.destroy();
+
+            // Get current values from dashboard
+            const savings = parseFloat(document.getElementById('val-savings')?.textContent.replace(/,/g, '')) || 28500;
+            const loans = parseFloat(document.getElementById('val-loans')?.textContent.replace(/,/g, '')) || 19272;
+            const interest = parseFloat(document.getElementById('val-interest')?.textContent.replace(/,/g, '')) || 7138;
+            const expenses = parseFloat(document.getElementById('val-expenses')?.textContent.replace(/,/g, '')) || 2168;
+            const welfare = parseFloat(document.getElementById('val-welfare')?.textContent.replace(/,/g, '')) || 1304;
+            const bank = parseFloat(document.getElementById('val-bank')?.textContent.replace(/,/g, '')) || 39746;
+
+            // Bar Chart - Income vs Expenses
+            const barCtx = document.getElementById('barChart').getContext('2d');
+            barChart = new Chart(barCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Income', 'Expenses', 'Loans', 'Welfare'],
+                    datasets: [{
+                        label: 'Amount (AUD)',
+                        data: [savings + interest, expenses, loans, welfare],
+                        backgroundColor: [
+                            '#006B3F',
+                            '#E74C3C',
+                            '#FFD900',
+                            '#00A651'
+                        ],
+                        borderColor: [
+                            '#006B3F',
+                            '#E74C3C',
+                            '#FFD900',
+                            '#00A651'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: '#9090A0' }
+                        },
+                        x: {
+                            ticks: { color: '#9090A0' }
+                        }
+                    }
+                }
+            });
+
+            // Doughnut Chart - Money Distribution
+            const doughnutCtx = document.getElementById('doughnutChart').getContext('2d');
+            doughnutChart = new Chart(doughnutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Savings', 'Loans', 'Bank Balance', 'Interest Earned'],
+                    datasets: [{
+                        data: [savings, loans, bank - loans - expenses, interest],
+                        backgroundColor: [
+                            '#006B3F',
+                            '#FFD900',
+                            '#00A651',
+                            '#F4D03F'
+                        ],
+                        borderColor: '#12122A',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#9090A0' }
+                        }
+                    }
+                }
+            });
+
+            // Line Chart - Progress Over Time
+            const lineCtx = document.getElementById('lineChart').getContext('2d');
+            lineChart = new Chart(lineCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Savings Progress',
+                        data: [10000, 15000, 20000, 24000, 28500, 28500],
+                        borderColor: '#006B3F',
+                        backgroundColor: 'rgba(0, 107, 63, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Loans Disbursed',
+                        data: [5000, 8000, 12000, 15000, 18000, 19272],
+                        borderColor: '#FFD900',
+                        backgroundColor: 'rgba(255, 217, 0, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { color: '#9090A0' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: '#9090A0' }
+                        },
+                        x: {
+                            ticks: { color: '#9090A0' }
+                        }
+                    }
+                }
+            });
+
+            // Horizontal Bar Chart - Category Breakdown
+            const hBarCtx = document.getElementById('horizontalBarChart').getContext('2d');
+            horizontalBarChart = new Chart(hBarCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Savings', 'Active Loans', 'Interest', 'Expenses', 'Welfare'],
+                    datasets: [{
+                        label: 'Amount (AUD)',
+                        data: [savings, loans, interest, expenses, welfare],
+                        backgroundColor: [
+                            '#006B3F',
+                            '#FFD900',
+                            '#F4D03F',
+                            '#E74C3C',
+                            '#00A651'
+                        ]
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: '#9090A0' }
+                        },
+                        y: {
+                            ticks: { color: '#9090A0' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Export Visual Report as Image
+        function exportVisualReport() {
+            showToast('Generating visual report...');
+            
+            const reportsSection = document.querySelector('#reportsTab');
+            
+            html2canvas(reportsSection, {
+                backgroundColor: '#0D0D1A',
+                scale: 2
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'BRADZA-Financial-Report-' + new Date().toISOString().split('T')[0] + '.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                showToast('Visual report downloaded!');
+            });
+        }
+
+        // Initialize charts on page load if on reports tab
+        window.addEventListener('load', () => {
+            // Charts will init when Reports tab is clicked
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
